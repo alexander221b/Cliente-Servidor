@@ -1,0 +1,20 @@
+> crear cuenta
+
+./bank_client add <monto inicial de la cuenta> // la cuenta se crea con un monto inicial, el número de cuenta se asigna automaticamente
+
+> buscar cliente
+
+./bank_client find <número de cuenta>
+
+> depositar en la cuenta
+
+./bank_client deposit <número de cuenta> <monto a depositar>
+
+> retirar de la cuenta
+
+./bank_client remove <número de cuenta> <monto a retirar>
+
+> transferir a otra cuenta
+
+./bank_client transfer <número de cuenta a retirar> <número de cuenta a depositar> <monto a transferir>
+
