@@ -1,0 +1,21 @@
+ejemplos de uso:
+
+./async_server
+
+./workers +      //tiene un sleep de 5 segundos
+./workers '*'
+./workers -
+./workers /
+
+./async_client diego 10+10 random
+./async_client diego 10*10 random
+./async_client diego 10/10 random
+./async_client diego 10-10 random
+./async_client diego 10+10 uniform
+./async_client diego 10*10 uniform
+./async_client diego 10/10 uniform
+./async_client diego 10-10 uniform
+./async_client diego 10+10 wait // no funciona
+
+
+
