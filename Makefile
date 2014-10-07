@@ -4,23 +4,25 @@ ZMQ=/home/diego/cs/zmq
 ZMQ_HDRS=$(ZMQ)/include
 ZMQ_LIBS=$(ZMQ)/lib 
 
-all: bankc banks 
+all: server client worker
 
-bankc: bank_server.c
-	$(CC) -I$(ZMQ_HDRS) -c bank_client.c
-	$(CC) -L$(ZMQ_LIBS) -o bank_client bank_client.o -lzmq -lczmq
+worker: matrix_thread_worker.c
+	$(CC) -I$(ZMQ_HDRS) -c matrix_thread_worker.c
+	$(CC) -L$(ZMQ_LIBS) -o matrix_thread_worker matrix_thread_worker.o -lzmq -lczmq -lpthread
 	
 
-banks: bank_server.c
-	$(CC) -I$(ZMQ_HDRS) -c bank_server.c
-	$(CC) -L$(ZMQ_LIBS) -o bank_server bank_server.o -lzmq -lczmq
+server: matrix_thread_server.c
+	$(CC) -I$(ZMQ_HDRS) -c matrix_thread_server.c
+	$(CC) -L$(ZMQ_LIBS) -o matrix_thread_server matrix_thread_server.o -lzmq -lczmq
+	
+
+client: matrix_thread_client.c
+	$(CC) -I$(ZMQ_HDRS) -c matrix_thread_client.c
+	$(CC) -L$(ZMQ_LIBS) -o matrix_thread_client matrix_thread_client.o -lzmq -lczmq
 
 clean:
-	rm -f bank_client.o bank_server.o bank_client bank_server *~
+	rm -f matrix_thread_server.o matrix_thread_client.o matrix_thread_worker.o matrix_thread_server matrix_thread_client matrix_thread_worker *~
         
-
-
-
 
 
 
